@@ -1,0 +1,11 @@
+body{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+div[id="root"]{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
