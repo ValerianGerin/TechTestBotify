@@ -1,10 +1,10 @@
 /**
- * 
- * @param {*} min 
- * @param {*} max 
- * @returns 
+ *
+ * @param {*} min
+ * @param {*} max
+ * @returns
  */
 
-export const average = function(min, max) {
+export const average = function (min, max) {
   return (min + max) / 2;
-}
+};

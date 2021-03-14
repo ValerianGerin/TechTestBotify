@@ -25,7 +25,7 @@ const BarChart = ({ data, setChartDisplay }) => {
       ) : (
         <div>Donnée non disponibles</div>
       )}
-      <Dropdown setChartDisplay={setChartDisplay}/>
+      <Dropdown setChartDisplay={setChartDisplay} />
     </div>
   );
 };
