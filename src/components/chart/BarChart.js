@@ -1,9 +1,10 @@
 import React from "react";
 import Chart from "react-google-charts";
+import { Dropdown } from "../index";
 import { caption, options } from "../../utils/ChartOptions";
 import style from "./BarChart.module.scss";
 
-const BarChart = ({ data }) => {
+const BarChart = ({ data, setChartDisplay }) => {
   /*Updating the NEOs data catching from props to match with the expected pattern in the data option on Chart */
   const neosData = data?.map((neo) => {
     return [neo.name, neo.size.min, neo.size.max];
@@ -24,6 +25,7 @@ const BarChart = ({ data }) => {
       ) : (
         <div>Donnée non disponibles</div>
       )}
+      <Dropdown setChartDisplay={setChartDisplay}/>
     </div>
   );
 };
