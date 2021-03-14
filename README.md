@@ -1,3 +1,19 @@
+# Resume 
+
+The first step works correctly. For reminder it was to fetch the data from NASA APi and display it, ordered by diameter,
+and display it with a google chart.
+
+
+The more complicated step 2 was, well advanced but I could not finish it within 4 hours. For a reminder too step 2 goal was to display NEOs actually orbiting near the orbital body selected by the user in the dropdown. 
+PS: I put divs and not radio or select buttons in the form only to save time on the scss.
+
+
+Too bad since step 3 was rather simple with just a toogle display in chart or table.
+
+Hope you enjoy the work and wish you a nice day while waiting for your return
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
