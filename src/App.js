@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import { BarChart, Loader } from "./components";
 import { average } from "./utils/FunctionLib";
-
 
 const App = () => {
   const [data, setData] = useState();
@@ -18,17 +18,30 @@ const App = () => {
 
         setIsLoaded(true);
 
-        // Since the data is pretty big we don't need to use every field so I just simplify 
+        // Since the data is pretty big we don't need to use every field so I just simplify
         // the data for reading and using it and i sort them by average size
-        
+
         const filteredData = jsonResponse.near_earth_objects
           ?.map((neo) => {
-            let name = neo.name;
-            let minSize =
+            const name = neo.name;
+            const minSize =
               neo.estimated_diameter.kilometers.estimated_diameter_min;
-            let maxSize =
+            const maxSize =
               neo.estimated_diameter.kilometers.estimated_diameter_max;
-            let averageSize = average(minSize, maxSize);
+            const averageSize = average(minSize, maxSize);
+
+            //First convert data format to match with data and recover the index of the current element
+            const numbersOfYearsFromNow = neo.close_approach_data.map(
+              (date, i) => {
+                return {
+                  numberofyears: moment(date.close_approach_date, "YYYYMMDD")
+                    .fromNow()
+                    .match(/\d+/)[0],
+                  index: i,
+                };
+              }
+            );
+
             return {
               name: name,
               size: { min: minSize, max: maxSize, average: averageSize },
@@ -46,7 +59,6 @@ const App = () => {
 
     fetchData();
   }, []);
-
 
   return (
     <>
