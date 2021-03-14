@@ -42,9 +42,27 @@ const App = () => {
               }
             );
 
+            //Then try to determine the closest date (they are number store in numberOfYearsFromNow) from 0
+            const closestNumberOfYearsApproachFromToday = numbersOfYearsFromNow.sort(
+              (prev, curr) => {
+                return (
+                  Math.abs(prev.numberofyears - 0) -
+                  Math.abs(curr.numberofyears - 0)
+                );
+              }
+            )[0];
+
+            //Then we recover the actual index of the element
+            const actualOrbitalBody = neo.close_approach_data.find(
+              (elem, i) => {
+                return i === closestNumberOfYearsApproachFromToday.index;
+              }
+            );
+
             return {
               name: name,
               size: { min: minSize, max: maxSize, average: averageSize },
+              currentOrbitalBody: actualOrbitalBody.orbiting_body,
             };
           })
           .sort((curr, next) => next.size.average - curr.size.average);
@@ -59,7 +77,6 @@ const App = () => {
 
     fetchData();
   }, []);
-
   return (
     <>
       {isLoaded ? <BarChart data={data} /> : <Loader />}
