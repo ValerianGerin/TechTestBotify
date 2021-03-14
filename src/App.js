@@ -2,11 +2,18 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { BarChart, Loader } from "./components";
 import { average } from "./utils/FunctionLib";
+import "./index.css";
 
 const App = () => {
   const [data, setData] = useState();
   const [isLoaded, setIsLoaded] = useState(false);
   const [message, setMessage] = useState();
+
+  //Function to set the data and display it from the user choice in dropdown
+  const displayNeosFromFromOrbitalBodyName = (orbitalBodyName) => {
+    console.log(orbitalBodyName);
+    data.filter((obj) => obj.currentOrbitalBody === orbitalBodyName);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +86,14 @@ const App = () => {
   }, []);
   return (
     <>
-      {isLoaded ? <BarChart data={data} /> : <Loader />}
+      {isLoaded ? (
+        <BarChart
+          data={data}
+          setChartDisplay={displayNeosFromFromOrbitalBodyName}
+        />
+      ) : (
+        <Loader />
+      )}
       {message}
     </>
   );
