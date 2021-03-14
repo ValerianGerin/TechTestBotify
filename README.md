@@ -4,7 +4,7 @@ The first step works correctly. For reminder it was to fetch the data from NASA 
 and display it with a google chart.
 
 
-The more complicated step 2 was, well advanced but I could not finish it within 4 hours. For a reminder too step 2 goal was to display NEOs actually orbiting near the orbital body selected by the user in the dropdown. 
+The more complicated step 2 was, well advanced but I could not finish it within 4 hours. For a reminder too, step 2 goals were to display NEOs actually orbiting near the orbital body selected by the user in the dropdown. 
 PS: I put divs and not radio or select buttons in the form only to save time on the scss.
 
 
